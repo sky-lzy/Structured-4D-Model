@@ -1,0 +1,12 @@
+name: task_config
+
+shape_meta:
+  obs:
+    pointcloud:
+      shape: [4096, 3]
+      type: pointcloud
+    agent_pos:
+      shape: [8]
+      type: low_dim
+  action:
+    shape: [8]

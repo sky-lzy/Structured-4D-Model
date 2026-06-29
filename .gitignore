@@ -1,0 +1,11 @@
+data/
+.ckpt/
+__pycache__/
+output/
+visualization/
+logs/
+
+*ckpts
+*.mp4
+*.png
+*.ply

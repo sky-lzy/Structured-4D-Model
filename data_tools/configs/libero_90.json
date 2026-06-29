@@ -1,0 +1,13 @@
+{
+    "libero_type": "libero_90",
+    "output_dir": "./data/libero/libero_90",
+    "num_tasks": 90,
+    "start_task": 0,
+    "scenes_per_task": 50,
+
+    "num_cameras": 40,
+    "image_size": [512, 512],
+    "radius": 1.5,
+    "num_timesteps": -1,
+    "export_voxels": true
+}

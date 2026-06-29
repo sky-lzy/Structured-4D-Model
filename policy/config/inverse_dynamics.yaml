@@ -1,0 +1,26 @@
+# @package _global_
+defaults:
+  - robot_dp
+  - _self_
+
+name: inverse_dynamics
+task_name: inverse_dynamics
+exp_name: "inverse_dynamics_experiment_64step"
+
+horizon: 64
+
+policy:
+  obs_encoder:
+    _target_: policy.model.vision.pointcloud_encoder.MultiStagePointNetEncoder
+    in_channels: 3
+    out_channels: 256
+
+dataset:
+  task: StackCube-v1
+  data_paths: data/maniskill/StackCube-v1/motionplanning/trajectory.pointcloud.pd_joint_pos.physx_cpu.4cams.4096points.h5
+  chunk_size: ${horizon}
+  interp_ratio: 1
+  inv_dyn: True
+  obs_mode: 'pointcloud'
+  num_success_demos: 1000
+  num_failure_demos: 0

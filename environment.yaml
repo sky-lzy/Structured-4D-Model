@@ -1,0 +1,63 @@
+name: structured_4d_model
+channels:
+  - conda-forge
+variables:
+  PYTHONNOUSERSITE: "1"
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - --extra-index-url https://download.pytorch.org/whl/cu124
+      - torch==2.5.0
+      - torchvision==0.20.0
+      - xformers==0.0.28.post2
+      - spconv-cu120==2.3.6
+      - numpy==1.26.4
+      - scipy==1.15.2
+      - pandas==2.3.1
+      - pillow==10.4.0
+      - opencv-python-headless==4.11.0.86
+      - opencv-python==4.11.0.86
+      - open3d==0.18.0
+      - tqdm==4.67.1
+      - easydict==1.13
+      - einops==0.8.1
+      - transformers==4.55.0
+      - safetensors==0.6.1
+      - huggingface-hub==0.34.3
+      - imageio==2.37.3
+      - imageio-ffmpeg==0.6.0
+      - hydra-core==1.3.2
+      - omegaconf==2.3.0
+      - diffusers==0.34.0
+      - gymnasium==0.29.1
+      - mani_skill==3.0.0b22
+      - sapien==3.0.3
+      - mplib==0.1.1
+      - fast_kinematics==0.2.2
+      - pytorch-kinematics==0.7.6
+      - transforms3d==0.4.2
+      - h5py==3.16.0
+      - zarr==2.18.3
+      - psutil==7.0.0
+      - dill==0.4.0
+      - plyfile==1.1.2
+      - tensorboard==2.20.0
+      - filelock==3.25.1
+      - fsspec==2026.2.0
+      - PyYAML==6.0.3
+      - typing_extensions==4.15.0
+      - tyro==1.0.14
+      - docstring-parser==0.18.0
+      - typeguard==4.5.2
+      - annotated-types==0.7.0
+      - anyio==4.12.1
+      - h11==0.16.0
+      - httpcore==1.0.9
+      - httpx==0.28.1
+      - pydantic==2.12.5
+      - pydantic-core==2.41.5
+      - sniffio==1.3.1
+      - typing-inspection==0.4.2
+      - pytorch3d==0.7.8
+      - utils3d @ git+https://github.com/EasternJournalist/utils3d.git@9a4eb15e4021b67b12c460c7057d642626897ec8

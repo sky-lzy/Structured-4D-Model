@@ -1,0 +1,20 @@
+{
+    "demo_path": "./data/raw/maniskill/PullCubeTool-v1/motionplanning/trajectory.h5",
+    "base_env_name": "PullCubeTool-v1",
+    "output_dir": "./data/maniskill/PullCubeTool-v1",
+    "num_scenes": 1000,
+    "start_scene": 0,
+    "instruction": "Given an L-shaped tool that is within the reach of the robot, leverage the tool to pull a cube that is out of it’s reach.",
+
+    "num_cameras": 40,
+    "target_point": [-0.3, 0, 0.2],
+    "image_size": [512, 512],
+    "radius": 1.5,
+    "fov": 1,
+    "bbox": [-0.85, -0.6, -0.2, 0.35, 0.6, 1],
+    "num_timesteps": 5,
+    "max_workers": 24,
+
+    "scale": 1.2,
+    "center": [-0.25, 0, 0.3]
+}

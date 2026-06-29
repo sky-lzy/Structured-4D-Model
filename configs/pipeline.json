@@ -1,0 +1,97 @@
+{
+    "name": "TrellisSDM3DGenPipeline",
+    "args": {
+        "checkpoint_root": ".",
+        "models": {
+            "sparse_structure_decoder": "microsoft/TRELLIS-image-large/ckpts/ss_dec_conv3d_16l8_fp16",
+            "sparse_structure_flow_model": {
+                "name": "TwoConditionedSparseStructureFlowModel",
+                "load_from": "zhiyi24/structured-4d-model/generator/single_dynamics",
+                "args": {
+                    "resolution": 16,
+                    "in_channels": 8,
+                    "out_channels": 8,
+                    "model_channels": 1024,
+                    "cond_channels": 768,
+                    "num_blocks": 24,
+                    "num_heads": 16,
+                    "mlp_ratio": 4,
+                    "patch_size": 1,
+                    "pe_mode": "ape",
+                    "qk_rms_norm": true,
+                    "use_fp16": true,
+                    "preprocess_slat_channels": [8, 64, 256]
+                }
+            },
+            "slat_decoder_gs": "microsoft/TRELLIS-image-large/ckpts/slat_dec_gs_swin8_B_64l8gs32_fp16",
+            "slat_flow_model": {
+                "name": "ElasticTwoConditionedSLatFlowModel",
+                "load_from": "zhiyi24/structured-4d-model/generator/latent_generator",
+                "args": {
+                    "resolution": 64,
+                    "in_channels": 8,
+                    "out_channels": 8,
+                    "model_channels": 1024,
+                    "cond_channels": 768,
+                    "num_blocks": 24,
+                    "num_heads": 16,
+                    "mlp_ratio": 4,
+                    "patch_size": 2,
+                    "num_io_res_blocks": 2,
+                    "io_block_channels": [128],
+                    "pe_mode": "ape",
+                    "qk_rms_norm": true,
+                    "use_fp16": true,
+                    "preprocess_slat_channels": [8, 128]
+                }
+            }
+        },
+        "sparse_structure_sampler": {
+            "name": "FlowEulerGuidanceIntervalSampler",
+            "args": {
+                "sigma_min": 1e-5
+            },
+            "params": {
+                "steps": 25,
+                "cfg_strength": 5.0,
+                "cfg_interval": [0.5, 1.0],
+                "rescale_t": 3.0
+            }
+        },
+        "slat_sampler": {
+            "name": "FlowEulerGuidanceIntervalSampler",
+            "args": {
+                "sigma_min": 1e-5
+            },
+            "params": {
+                "steps": 25,
+                "cfg_strength": 5.0,
+                "cfg_interval": [0.5, 1.0],
+                "rescale_t": 3.0
+            }
+        },
+        "slat_normalization": {
+            "mean": [
+                -2.1687545776367188,
+                -0.004347046371549368,
+                -0.13352349400520325,
+                -0.08418072760105133,
+                -0.5271206498146057,
+                0.7238689064979553,
+                -1.1414450407028198,
+                1.2039363384246826
+            ],
+            "std": [
+                2.377650737762451,
+                2.386378288269043,
+                2.124418020248413,
+                2.1748552322387695,
+                2.663944721221924,
+                2.371192216873169,
+                2.6217446327209473,
+                2.684523105621338
+            ]
+        },
+        "text_cond_model": "openai/clip-vit-large-patch14"
+    }
+}
