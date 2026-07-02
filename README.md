@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href="">
+  <a href="https://arxiv.org/abs/2607.01166">
     <img src='https://img.shields.io/badge/Paper-PDF-red?style=flat&logo=arXiv&logoColor=red' alt='arXiv'>
   </a>
   <a href='https://structured-4d-model.github.io/' style='padding-left: 0.5rem;'>
