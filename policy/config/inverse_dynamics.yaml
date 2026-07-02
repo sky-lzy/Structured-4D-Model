@@ -17,7 +17,7 @@ policy:
 
 dataset:
   task: StackCube-v1
-  data_paths: data/maniskill/StackCube-v1/motionplanning/trajectory.pointcloud.pd_joint_pos.physx_cpu.4cams.4096points.h5
+  data_paths: data/raw/maniskill/StackCube-v1/motionplanning/trajectory.pointcloud.pd_joint_pos.physx_cpu.4cams.4096points.h5
   chunk_size: ${horizon}
   interp_ratio: 1
   inv_dyn: True

@@ -161,6 +161,21 @@ python train.py \
   --output_dir outputs/gen_slat_stackcube
 ```
 
+
+### Inverse Dynamics Training
+
+First collect the training data with:
+
+```bash
+python data_tools/replay_maniskill.py --traj-path data/raw/maniskill/StackCube-v1/motionplanning/trajectory.h5 -c pd_joint_pos -o pointcloud --save-traj --num_extra_cams 4 --fix_camera
+```
+
+Then train the inverse dynamics model with:
+
+```bash
+python -m policy.train
+```
+
 ## Checklist
 - [x] Release the inference code
 - [x] Release the data generation pipeline
@@ -172,11 +187,14 @@ python train.py \
 If you find our work useful, please consider citing:
 
 ```bibtex
-@inproceedings{li2026structured4d,
-  title     = {Structured 4D Latent Predictive Model for Robot Planning},
-  author    = {Li, Zhiyi and Wu, Peilin and Han, Xiaoshen and Cai, Ruojin and Du, Yilun},
-  booktitle = {International Conference on Machine Learning},
-  year      = {2026}
+@article{li2026structured,
+      title={Structured 4D Latent Predictive Model for Robot Planning}, 
+      author={Zhiyi Li and Peilin Wu and Xiaoshen Han and Ruojin Cai and Yilun Du},
+      year={2026},
+      eprint={2607.01166},
+      archivePrefix={arXiv},
+      primaryClass={cs.RO},
+      url={https://arxiv.org/abs/2607.01166}, 
 }
 ```
 

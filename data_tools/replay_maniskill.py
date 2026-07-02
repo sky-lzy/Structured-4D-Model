@@ -348,7 +348,7 @@ class Args:
     support 'sparse', 'none', and some further support 'normalized_dense' and 'dense' reward modes"""
     record_rewards: bool = False
     """Whether the replayed trajectory should include rewards"""
-    shader: Optional[str] = None
+    shader: Optional[str] = "minimal"
     """Change shader used for rendering for all cameras. Default is none meaning it will use whatever was used in the original data collection or the environment default.
     Can also be 'rt' for ray tracing and generating photo-realistic renders. Can also be 'rt-fast' for a faster but lower quality ray-traced renderer"""
     video_fps: Optional[int] = None
@@ -366,9 +366,9 @@ class Args:
     """Whether to use fixed cameras or randomly generated cameras."""
     # point_cloud_res: int = 64
     # """Voxel resolution of the point cloud to record."""
-    downsample_num: int = 1024
+    downsample_num: int = 4096
     """Number of points to downsample the point cloud to. This is only used if use_env_states is True and the environment supports point clouds."""
-    bbox: tuple[float, float, float, float, float, float] = (-0.5, -0.5, -0.5, 0.5, 0.5, 0.5)
+    bbox: tuple[float, float, float, float, float, float] = (-0.85, -0.6, -0.2, 0.35, 0.6, 1)
     """Bounding box to use for recording point clouds. This is in the format (xmin, ymin, zmin, xmax, ymax, zmax) in meters."""
     output_rgb: bool = False
     """Whether to output RGB along with point cloud positions during replay."""
